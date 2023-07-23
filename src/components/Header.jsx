@@ -1,5 +1,5 @@
 import logo from "../assets/images/react.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -15,10 +15,12 @@ const Header = () => {
           <nav id="menu">
             <ul>
               <li>
-                <Link to={"/"}>Inicio</Link>
+                <NavLink to={"/"} activateClassName="active">
+                  Inicio
+                </NavLink>
               </li>
               <li>
-                <Link to={"/pruebas"}>Blog</Link>
+                <NavLink to={"/blog"}>Blog</NavLink>
               </li>
               <li>
                 <a href="formulario.html">Formulario</a>
