@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Pelicula from "./Pelicula";
 
 /* The code defines a functional component called `Peliculas`. It uses the `useState` hook from React

@@ -1,5 +1,3 @@
-import React from "react";
-
 const Pelicula = ({ lenguaje, Favorita }) => {
   /* The line `const { title, image } = lenguaje;` is using object destructuring to extract the
     `title` and `image` properties from the `lenguaje` object. This allows the component to access

@@ -5,34 +5,59 @@ import Slider from "./components/Slider";
 import Peliculas from "./components/Peliculas";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import Pruebas from "./components/Pruebas.jsx";
+import Page404 from "./components/Page404.jsx";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   let buttonString = "Ir al Blog";
 
+  const routes = [
+    {
+      path: "/",
+      element: <Peliculas />,
+    },
+    {
+      path: "/pruebas",
+      element: <Pruebas />,
+    },
+    {
+      path: "*",
+      element: <Page404 />,
+    },
+  ];
+
   return (
     <div className="App">
-      <Header />
+      <BrowserRouter>
+        <Header />
 
-      <Slider
-        title="Amplia y comparte todos tus conocimientos sobre la Programacion, para que seas un genio de ella."
-        btn={buttonString}
-      />
+        <Slider
+          title="Amplia y comparte todos tus conocimientos sobre la Programacion, para que seas un genio de ella."
+          btn={buttonString}
+        />
 
-      {/* The code is creating a container div with the class name "center". Inside this div, there is a
-      section element with the id "content". Within the section element, the RouterProvider component is
-      being rendered with the "router" prop set to the "router" variable. The RouterProvider component is
-  responsible for providing the routing functionality to the application. */}
-      <div className="center">
-        <section id="content">
-          <Peliculas />
-        </section>
+        <div className="center">
+          <section id="content">
+            <Routes>
+              {routes.map((screen) => (
+                <Route
+                  key={screen.path}
+                  path={screen.path}
+                  element={screen.element}
+                />
+              ))}
+            </Routes>
+          </section>
 
-        <Sidebar />
+          <Sidebar />
 
-        <div className="clearfix"></div>
-      </div>
+          <div className="clearfix"></div>
+        </div>
 
-      <Footer />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
