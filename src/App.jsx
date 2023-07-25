@@ -5,9 +5,16 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
 import Page404 from "./components/Page404.jsx";
+import Peliculas from "./components/Peliculas";
+import Lenguajes from "./components/Lenguajes";
+import Formulario from "./components/Formulario";
 
+/* The line `import { BrowserRouter, Routes, Route } from "react-router-dom";` is importing specific
+components from the "react-router-dom" library. */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+/* The `routes` constant is an array of objects that define the routes for the application. Each object
+in the array represents a specific route and has two properties: `path` and `element`. */
 const routes = [
   {
     path: "/",
@@ -18,6 +25,18 @@ const routes = [
     element: <Blog />,
   },
   {
+    path: "/peliculas",
+    element: <Peliculas />,
+  },
+  {
+    path: "/lenguajes",
+    element: <Lenguajes />,
+  },
+  {
+    path: "/formulario",
+    element: <Formulario />,
+  },
+  {
     path: "*",
     element: <Page404 />,
   },
@@ -26,10 +45,22 @@ const routes = [
 function App() {
   return (
     <div className="App">
+      {/* The code block is defining the routing configuration for the application using the
+      `react-router-dom` library. */}
       <BrowserRouter>
         <Header />
 
         <Routes>
+          {/* The code block 
+          `{routes.map((screen) => (
+              <Route
+                key={screen.path}
+                path={screen.path}
+                element={screen.element}
+              />
+            ))}` 
+          is mapping over the `routes` array and creating a `<Route>` component for
+          each object in the array. */}
           {routes.map((screen) => (
             <Route
               key={screen.path}

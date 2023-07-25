@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Slider = ({ title, btn, size }) => {
   return (
     <>
       <div id="slider" className={size}>
         <h1>{title}</h1>
         {btn && (
-          <a href="#" className="btn-white">
+          <Link to="/blog" className="btn-white">
             {btn}
-          </a>
+          </Link>
         )}
       </div>
     </>

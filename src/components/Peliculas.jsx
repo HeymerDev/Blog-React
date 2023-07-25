@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Pelicula from "./Pelicula";
+import Sidebar from "./Sidebar";
 
 /* The code defines a functional component called `Peliculas`. It uses the `useState` hook from React
 to declare a state variable `lenguajes` and a function `setLenguajes` to update the state. The
@@ -16,32 +17,32 @@ const Peliculas = () => {
   let [favorito, setFavoritos] = useState("");
   let htmlFavorita;
 
-  const [lenguajes, setLenguajes] = useState([
+  const [peliculas, setPeliculas] = useState([
     {
-      title: "JavaScript",
+      title: "No Way Home",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
+        "https://media.vandalsports.com/i/640x360/8-2022/2022822162218_1.jpg",
     },
 
     {
-      title: "Python",
+      title: "Infinity War",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/640px-Python.svg.png",
+        "https://hips.hearstapps.com/hmg-prod/images/mlou-13x19-dolbyatamc-handout-v4-online-lg-1524737456.jpg?crop=1.00xw:0.685xh;0,0.0249xh&resize=2048:*",
     },
 
     {
-      title: "TypeScript",
+      title: "Dragon Ball Super: Super Hero",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4f/Dragon_Ball_Super_Super_Hero_Logo.png",
     },
   ]);
 
   /**
    * The function "seleccionarFavorita" logs the given language to the console.
    */
-  const seleccionarFavorita = (lenguaje) => {
-    console.log(lenguaje);
-    setFavoritos(lenguaje.title);
+  const seleccionarFavorita = (pelicula) => {
+    console.log(pelicula);
+    setFavoritos(pelicula.title);
   };
 
   /* The code block is checking if the `favorito` state variable has a value. If it does, it sets the
@@ -51,36 +52,39 @@ const Peliculas = () => {
   if (favorito) {
     htmlFavorita = (
       <p className="favorita" style={favoriteStyles}>
-        <strong>Tu lenguaje Favorito es: </strong>
+        <strong>Tu Pelicula Favorita es: </strong>
         <small>{favorito}</small>
       </p>
     );
   } else {
-    htmlFavorita = <p>No hay Lenguaje Favorita</p>;
+    htmlFavorita = <p>No hay Pelicula Favorita</p>;
   }
 
   /* The `return` statement in the `Peliculas` component is returning JSX (JavaScript XML) code. JSX is a
   syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. */
   return (
-    <>
-      <h4 className="subheader">Lenguajes de Programacion</h4>
-      <p>
-        Seleccion de lenaguajes favoritos de {name} <br /> selecciona cual de
-        estos tres es el tuyo
-      </p>
+    <div className="center">
+      <section id="content">
+        <h4 className="subheader">Peliculas Favorita</h4>
+        <p>
+          Seleccion de peliculas favoritas de {name} <br /> selecciona cual de
+          estas tres es la tuya
+        </p>
 
-      {htmlFavorita}
+        {htmlFavorita}
 
-      {lenguajes.map((lenguaje, index) => {
-        return (
-          <Pelicula
-            key={index}
-            lenguaje={lenguaje}
-            Favorita={seleccionarFavorita}
-          />
-        );
-      })}
-    </>
+        {peliculas.map((pelicula, index) => {
+          return (
+            <Pelicula
+              key={index}
+              pelicula={pelicula}
+              Favorita={seleccionarFavorita}
+            />
+          );
+        })}
+      </section>
+      <Sidebar blog="false" />
+    </div>
   );
 };
 

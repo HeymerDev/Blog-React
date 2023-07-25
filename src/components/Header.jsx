@@ -20,16 +20,24 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/blog"}>Blog</NavLink>
+                <NavLink to={"/blog"} activateClassName>
+                  Blog
+                </NavLink>
               </li>
               <li>
-                <a href="formulario.html">Formulario</a>
+                <NavLink to={"/formulario"} activateClassName>
+                  Formulario
+                </NavLink>
               </li>
               <li>
-                <a href="#">Pagina 1</a>
+                <NavLink to={"/lenguajes"} activateClassName>
+                  Lenguajes
+                </NavLink>
               </li>
               <li>
-                <a href="#">Pagina 2</a>
+                <NavLink to={"/peliculas"} activateClassName>
+                  Peliculas
+                </NavLink>
               </li>
             </ul>
           </nav>
