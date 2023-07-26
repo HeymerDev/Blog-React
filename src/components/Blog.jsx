@@ -1,16 +1,20 @@
 import Slider from "./Slider";
 import Sidebar from "./Sidebar";
+import Articles from "./Articles";
 
-const Home = () => {
+const Blog = () => {
   return (
     <>
       <Slider title="Blog" size="slider-small" />
       <div className="center">
-        <section id="content">{/*listado de articulos*/}</section>
+        <section id="content">
+          {/*listado de articulos*/}
+          <Articles />
+        </section>
         <Sidebar blog="true" />
       </div>
     </>
   );
 };
 
-export default Home;
+export default Blog;
