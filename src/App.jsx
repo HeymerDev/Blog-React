@@ -8,6 +8,9 @@ import Page404 from "./components/Page404.jsx";
 import Peliculas from "./components/Peliculas";
 import Lenguajes from "./components/Lenguajes";
 import Formulario from "./components/Formulario";
+import Article from "./components/Article";
+import Search from "./components/Search";
+import Redirect from "./components/Redirect";
 
 /* The line `import { BrowserRouter, Routes, Route } from "react-router-dom";` is importing specific
 components from the "react-router-dom" library. */
@@ -35,6 +38,18 @@ const routes = [
   {
     path: "/formulario",
     element: <Formulario />,
+  },
+  {
+    path: "/blog/article/:id",
+    element: <Article />,
+  },
+  {
+    path: "/blog/search/:search",
+    element: <Search />,
+  },
+  {
+    path: "/redirect/:search",
+    element: <Redirect />,
   },
   {
     path: "*",

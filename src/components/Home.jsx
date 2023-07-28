@@ -1,5 +1,6 @@
 import Slider from "./Slider";
 import Sidebar from "./Sidebar";
+import Articles from "./Articles";
 
 const Home = () => {
   let buttonString = "Ir al Blog";
@@ -13,7 +14,7 @@ const Home = () => {
       />
       <div className="center">
         <section id="content">
-          <h2 className="subheader">Ultimos Articulos </h2>
+          <Articles home="true" title="Ultimos Articulos" />
         </section>
         <Sidebar />
       </div>

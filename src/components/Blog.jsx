@@ -9,7 +9,7 @@ const Blog = () => {
       <div className="center">
         <section id="content">
           {/*listado de articulos*/}
-          <Articles />
+          <Articles title="Listado de Articulos" />
         </section>
         <Sidebar blog="true" />
       </div>
