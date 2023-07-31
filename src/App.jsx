@@ -11,6 +11,8 @@ import Formulario from "./components/Formulario";
 import Article from "./components/Article";
 import Search from "./components/Search";
 import Redirect from "./components/Redirect";
+import CreateArticle from "./components/CreateArticle";
+import EditArticle from "./components/EditArticle";
 
 /* The line `import { BrowserRouter, Routes, Route } from "react-router-dom";` is importing specific
 components from the "react-router-dom" library. */
@@ -46,6 +48,14 @@ const routes = [
   {
     path: "/blog/search/:search",
     element: <Search />,
+  },
+  {
+    path: "/blog/create",
+    element: <CreateArticle />,
+  },
+  {
+    path: "/blog/edit/:id",
+    element: <EditArticle />,
   },
   {
     path: "/redirect/:search",

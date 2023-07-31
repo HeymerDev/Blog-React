@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import Global from "../Global";
 
+
 import { Link } from "react-router-dom";
 
 const Articles = ({ home, title, search }) => {

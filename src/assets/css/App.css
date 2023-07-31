@@ -138,6 +138,19 @@ body {
   transition: 300ms all;
 }
 
+.btn-danger {
+  background-color: red !important;
+  color: white !important;
+  float: left;
+  margin-right: 10px;
+}
+
+.btn-warning {
+  background-color: orange !important;
+  color: white !important;
+  float: left;
+  margin: 10px;
+}
 .btn-white:hover {
   background: #444;
   color: white;
@@ -246,7 +259,8 @@ button:focus-visible {
 }
 
 input[type="text"],
-textarea {
+textarea,
+input[type="file"] {
   width: 100%;
   min-height: 30px;
   border: 1px solid #ccc;
@@ -269,6 +283,9 @@ textarea {
   max-height: 300px;
 }
 
+button {
+  margin-top: 10px;
+}
 .radibuttons {
   margin-top: 10px;
   margin-bottom: 10px;

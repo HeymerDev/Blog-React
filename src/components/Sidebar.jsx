@@ -1,5 +1,5 @@
 import { createRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Sidebar = ({ blog }) => {
   const navigate = useNavigate();
@@ -37,9 +37,9 @@ const Sidebar = ({ blog }) => {
         {blog === "true" && (
           <div id="nav-blog" className="sidebar-item">
             <h3>Puedes hacer esto</h3>
-            <a href="#" className="btn btn-success">
+            <Link to={"/blog/create"} className="btn btn-success">
               Crear artículo
-            </a>
+            </Link>
           </div>
         )}
 

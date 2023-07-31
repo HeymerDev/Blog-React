@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import Global from "../Global";
+import swal from "sweetalert";
 
 import Sidebar from "./Sidebar";
 
@@ -12,6 +13,7 @@ const Article = () => {
   const { id } = useParams();
 
   let url = Global.url;
+  const navigate = useNavigate();
 
   /* The `useEffect` hook is used to perform side effects in functional components. In this case, it is
  making an HTTP GET request to fetch an article from the server using the `axios` library. The URL
@@ -22,6 +24,31 @@ const Article = () => {
       setArticle(res.data.article);
     });
   });
+
+  const deleteArticle = (id) => {
+    swal({
+      title: "Estas seguro?",
+      text: "Estas seguro de borrar este articulo?!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios.delete(url + "article/" + id).then((res) => {
+          setArticle(res.data.article);
+          navigate("/blog");
+
+          swal(
+            "Articulo Borrado",
+            "El articulo se borro correctamente",
+            "success"
+          );
+        });
+      } else {
+        swal("Tranquilo", "tu articulo no se ha borrado", "error");
+      }
+    });
+  };
 
   return (
     <>
@@ -46,6 +73,21 @@ const Article = () => {
               <h1 className="subheader">{article.title}</h1>
               <span className="date">{moment(article.date).fromNow()}</span>
               <p>{article.content}</p>
+
+              <button
+                onClick={() => {
+                  deleteArticle(article._id);
+                }}
+                className="btn btn-danger"
+              >
+                Eliminar
+              </button>
+              <Link
+                to={"/blog/edit/" + article._id}
+                className="btn btn-warning"
+              >
+                Editar
+              </Link>
 
               <div className="clearfix"></div>
             </article>
