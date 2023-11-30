@@ -17,7 +17,7 @@ execute the `useEffect` hook. */
         console.log(res.data);
         setArticles(res.data.articles);
       });
-    }, []);
+    }, [articles]);
     /* The `else if (search)` block is checking if the `search` prop is truthy. If it is, it calls the
 `getArticleBySearch` function passing the `search` prop as an argument. This function is responsible
 for making an API call to retrieve articles based on the search query. */
@@ -31,7 +31,7 @@ for making an API call to retrieve articles based on the search query. */
         console.log(res.data);
         setArticles(res.data.articles);
       });
-    }, []);
+    }, [articles]);
   }
 
   /**
